@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@color/backgroud">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gambar1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/R_Img_1"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/R_back"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/R_Img_1"
+        android:text="Welcome Onbard!"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppinsbold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:id="@+id/R_txt1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/R_txt1"
+        android:layout_centerHorizontal="true"
+        android:text="Let’s help you meet up your tasks."
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinsregular"
+        android:layout_marginTop="3dp"
+        android:id="@+id/R_txt2"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/R_txt2"
+        android:padding="30dp"
+        android:id="@+id/ly_1"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:hint="Enter Your Full Name"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsregular"
+            android:id="@+id/et_name"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Your Email Address"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsregular"
+            android:id="@+id/et_email"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:hint="Create Password"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsregular"
+            android:id="@+id/et_pw"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:hint="Confirm Password"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="15dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppinsregular"
+            android:id="@+id/et_cpw"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ly_1"
+        android:text="Register"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
+        android:width="300dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="18sp"
+        android:id="@+id/R_btn1"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/R_btn1"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Login"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="12sp"
+            android:textColor="@color/secondaryColor"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
