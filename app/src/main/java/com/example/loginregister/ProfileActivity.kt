@@ -8,8 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -19,6 +20,8 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var imgProfile: ImageView
     private lateinit var btnUploadImage: Button
     private lateinit var btnSave: Button
+
+    private lateinit var getImageResult: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,17 @@ class ProfileActivity : AppCompatActivity() {
         imgProfile = findViewById(R.id.img_profile)
         btnUploadImage = findViewById(R.id.btn_upload_image)
         btnSave = findViewById(R.id.btn_save)
+
+        // Initialize ActivityResultLauncher
+        getImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val imageUri: Uri? = result.data?.data
+                imageUri?.let {
+                    imgProfile.setImageURI(it)
+                    imgProfile.tag = it.toString() // Store URI as a tag
+                }
+            }
+        }
 
         val email = intent.getStringExtra("USER_EMAIL") ?: return
 
@@ -43,11 +57,10 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         btnUploadImage.setOnClickListener {
-            // Implement image upload logic
-            // For example, open image picker
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, IMAGE_PICK_REQUEST_CODE)
+            val intent = Intent(Intent.ACTION_PICK).apply {
+                type = "image/*"
+            }
+            getImageResult.launch(intent)
         }
 
         btnSave.setOnClickListener {
@@ -58,20 +71,5 @@ class ProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show()
         }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_PICK_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val imageUri: Uri? = data?.data
-            imgProfile.setImageURI(imageUri)
-            // Save the image path or URI for later use
-            imageUri?.let {
-                imgProfile.tag = it.toString()
-            }
-        }
-    }
-
-    companion object {
-        private const val IMAGE_PICK_REQUEST_CODE = 1
-    }
 }
+
