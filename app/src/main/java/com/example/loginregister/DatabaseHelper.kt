@@ -36,14 +36,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     // Tambah pengguna baru
-    fun addUser(username: String, email: String, password: String, fullName: String, profilePicture: String?): Long {
+    fun addUser(username: String, email: String, password: String): Long {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COLUMN_USERNAME, username)
         values.put(COLUMN_EMAIL, email)
         values.put(COLUMN_PASSWORD, password)
-        values.put(COLUMN_FULL_NAME, fullName)
-        values.put(COLUMN_PROFILE_PICTURE, profilePicture)
 
         return db.insert(TABLE_USERS, null, values)
     }
