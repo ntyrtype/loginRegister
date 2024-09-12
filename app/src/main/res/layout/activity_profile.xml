@@ -33,7 +33,7 @@
         android:padding="16dp"
         android:hint="Full Name"
         android:importantForAccessibility="yes"
-        android:contentDescription="Full Name Input" />
+         />
 
     <EditText
         android:id="@+id/et_email"
@@ -44,7 +44,7 @@
         android:padding="16dp"
         android:hint="Email"
         android:importantForAccessibility="yes"
-        android:contentDescription="Email Input" />
+        />
 
     <Button
         android:id="@+id/btn_save"
