@@ -18,4 +18,11 @@
         android:textColor="@color/black"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Profile"
+            android:layout_centerInParent="true" />
+
+</RelativeLayout>
