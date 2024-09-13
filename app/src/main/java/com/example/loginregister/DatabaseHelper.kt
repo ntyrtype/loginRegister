@@ -42,9 +42,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         values.put(COLUMN_USERNAME, username)
         values.put(COLUMN_EMAIL, email)
         values.put(COLUMN_PASSWORD, password)
+        values.put(COLUMN_FULL_NAME, username) // fullName = username
 
         return db.insert(TABLE_USERS, null, values)
     }
+
 
     // Cek apakah username sudah ada
     fun isUsernameExists(username: String): Boolean {
@@ -64,6 +66,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor.close()
         return exists
     }
+
+    data class User(
+        val fullName: String,
+        val email: String,
+        val profilePicture: String?
+    )
 
     fun getUser(email: String): User? {
         val db = this.readableDatabase
@@ -97,5 +105,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
         db.update(TABLE_USERS, values, "$COLUMN_EMAIL = ?", arrayOf(email))
     }
+
 
 }

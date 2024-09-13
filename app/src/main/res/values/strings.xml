@@ -1,5 +1,5 @@
 <resources>
-    <string name="LoginRegister">LoginRegister</string>
+    <string name="app_name">LoginRegister</string>
     <string name="password_weak">Password is too weak. Use at least 8 characters, including uppercase, number, and special character.</string>
     <string name="username_exists">Username already exists</string>
     <string name="password_mismatch">Passwords do not match</string>
